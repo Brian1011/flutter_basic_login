@@ -11,12 +11,24 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String? username;
   String? password;
+  // texxfi
 
   submit() {
-    // Todo: validate fields then call api
+    validate();
+    // Todo: validate fields using text field controllers then call api
   }
 
-  validate() {
+  bool validate() {
+    if (username == null) {
+      print("Username is empty");
+      return false;
+    } else if (password == null) {
+      print("Password is empty");
+      return false;
+    } else {
+      return true;
+    }
+
     // Todo: validate fields
   }
 
@@ -48,7 +60,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelStyle: TextStyle(
                         fontSize: 13, color: Colors.redAccent), //label style
                   ),
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    setState(() {
+                      username = value;
+                    });
+                  },
                 )),
             Container(
                 width: double.infinity,
@@ -64,7 +80,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelStyle: TextStyle(
                         fontSize: 13, color: Colors.redAccent), //label style
                   ),
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    setState(() {
+                      password = value;
+                    });
+                  },
                 )),
             Center(
               child: MaterialButton(
