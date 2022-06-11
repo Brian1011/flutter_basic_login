@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,8 +20,10 @@ class _LoginScreenState extends State<LoginScreen> {
     // Todo: validate fields
   }
 
-  callApi() {
+  callApi() async {
     // Todo: call api here
+    var dio = Dio();
+    await dio.post('url', data: {}).then((value) {}).catchError((error) {});
   }
 
   @override
