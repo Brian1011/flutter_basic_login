@@ -8,6 +8,21 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String? username;
+  String? password;
+
+  submit() {
+    // Todo: validate fields then call api
+  }
+
+  validate() {
+    // Todo: validate fields
+  }
+
+  callApi() {
+    // Todo: call api here
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 minWidth: double.infinity,
                 height: 50,
                 color: Colors.blue[500],
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/mainMenu');
-                },
+                onPressed: submit,
                 child: const Text(
                   "Login",
                   style: TextStyle(
