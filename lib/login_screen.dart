@@ -14,38 +14,57 @@ class _LoginScreenState extends State<LoginScreen> {
         appBar: AppBar(
           title: const Text("Login"),
         ),
-        body: Column(
+        body: ListView(
           children: [
-            Expanded(
-              flex: 8,
-              child: Container(
+            Container(
                 width: double.infinity,
-                color: Colors.grey[300],
-                child: const Center(
-                    child: Text(
-                  "IMAGE",
-                  style: TextStyle(fontSize: 18),
-                )),
-              ),
-            ),
-            Expanded(
-                flex: 2,
-                child: Center(
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 50,
-                    color: Colors.yellow[500],
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/mainMenu');
-                    },
-                    child: const Text(
-                      "Play",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: "Username", //babel text
+                    hintText: "Enter your email", //hint text
+                    prefixIcon: Icon(Icons.people), //prefix iocn
+                    hintStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold), //hint text style
+                    labelStyle: TextStyle(
+                        fontSize: 13, color: Colors.redAccent), //label style
                   ),
-                ))
+                  onChanged: (value) {},
+                )),
+            Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: "Password", //babel text
+                    hintText: "Enter your password", //hint text
+                    prefixIcon: Icon(Icons.password), //prefix iocn
+                    hintStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold), //hint text style
+                    labelStyle: TextStyle(
+                        fontSize: 13, color: Colors.redAccent), //label style
+                  ),
+                  onChanged: (value) {},
+                )),
+            Center(
+              child: MaterialButton(
+                minWidth: double.infinity,
+                height: 50,
+                color: Colors.blue[500],
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/mainMenu');
+                },
+                child: const Text(
+                  "Play",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            )
           ],
         ));
   }
