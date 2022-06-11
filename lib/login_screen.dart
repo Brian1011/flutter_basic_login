@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.of(context).pushNamed('/mainMenu');
                 },
                 child: const Text(
-                  "Play",
+                  "Login",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
