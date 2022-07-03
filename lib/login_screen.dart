@@ -11,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String? username;
   String? password;
+  var apiData;
   // texxfi
 
   submit() {
@@ -40,11 +41,13 @@ class _LoginScreenState extends State<LoginScreen> {
     // Get api response smaple
     await dio
         .get(
-      "https://my-json-server.typicode.com/Brian1011/fake_api_json_server/books",
-    )
+            "https://my-json-server.typicode.com/Brian1011/fake_api_json_server/books")
         .then((response) {
       debugPrint('RESPONSE');
       debugPrint(response.toString());
+      setState(() {
+        apiData = response.data;
+      });
     }).catchError((error) {
       debugPrint("ERROR " + error.toString());
     });
@@ -112,7 +115,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-            )
+            ),
+            if (apiData != null)
+              Center(
+                child: Text(apiData.toString()),
+              )
           ],
         ));
   }
