@@ -14,6 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   // texxfi
 
   submit() {
+    callApi();
     validate();
     // Todo: validate fields using text field controllers then call api
   }
@@ -35,7 +36,18 @@ class _LoginScreenState extends State<LoginScreen> {
   callApi() async {
     // Todo: call api here
     var dio = Dio();
-    await dio.post('url', data: {}).then((value) {}).catchError((error) {});
+
+    // Get api response smaple
+    await dio
+        .get(
+      "https://my-json-server.typicode.com/Brian1011/fake_api_json_server/books",
+    )
+        .then((response) {
+      debugPrint('RESPONSE');
+      debugPrint(response.toString());
+    }).catchError((error) {
+      debugPrint("ERROR " + error.toString());
+    });
   }
 
   @override
